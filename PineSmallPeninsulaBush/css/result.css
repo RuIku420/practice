@@ -1,0 +1,18 @@
+body {
+    background-color: #000000;
+    color: #F0FAF7;
+}
+
+#kakogoimg{
+    padding: 5%;
+}
+
+.koimgs {
+    display: inline-block;
+    padding: 5%;
+}
+
+p {
+    font-size: 30px;
+    text-align: center;
+}
