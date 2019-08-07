@@ -17,8 +17,8 @@ import matplotlib.pyplot as plt
 
 def extension_conversion():
     """imgディレクトリ下のgazou.pngをgazou.jpgにする"""
-    input_path = "C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\img\\"
-    output_path = "C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\img\\"
+    input_path = "C:\\xampp\\htdocs\\php\\Horiuchi4J\\img\\"
+    output_path = "C:\\xampp\\htdocs\\php\\Horiuchi4J\\img\\"
     files = os.listdir(input_path)
     count = 1
 
@@ -33,18 +33,18 @@ def extension_conversion():
             print("transaction finished" + str(count))
 
 def up_contrast(count):
-    image1 =Image.open("C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\img\\gazou.jpg")
+    image1 =Image.open("C:\\xampp\\htdocs\\php\\Horiuchi4J\\img\\gazou.jpg")
 
     con6 = ImageEnhance.Color(image1)
     con6_image = con6.enhance(10.0 * count)
 
     #画像出力
-    con6_image.save('C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\img\\gazou.jpg', quality=95)
+    con6_image.save('C:\\xampp\\htdocs\\php\\Horiuchi4J\\img\\gazou.jpg', quality=95)
 
 def lighten_image(count):
-    img =Image.open("C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\img\\gazou.jpg")
+    img =Image.open("C:\\xampp\\htdocs\\php\\Horiuchi4J\\img\\gazou.jpg")
     img_after = img.point(lambda x: x * (1.5 * count))
-    img_after.save('C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\img\\gazou.jpg', quality=95)
+    img_after.save('C:\\xampp\\htdocs\\php\\Horiuchi4J\\img\\gazou.jpg', quality=95)
 
 #カスケード型分類器に使用する分類器のデータ（xmlファイル）を読み込み
 def myface_cut():
@@ -56,9 +56,14 @@ def myface_cut():
         CASCADE = cv2.CascadeClassifier(HAAR_FILE)
 
         #画像ファイルの読み込み
-        IMAGE_PICTURE = 'C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\img\\gazou.jpg'
+        IMAGE_PICTURE = 'C:\\xampp\\htdocs\\php\\Horiuchi4J\\img\\gazou.jpg'
 
         IMG = cv2.imread(IMAGE_PICTURE)
+
+        #もともとの画像を一度だけ保存する
+        if count == 0:
+            #IMG = cv2.imread(IMAGE_PICTURE)
+            cv2.imwrite('C:\\xampp\\htdocs\\php\\Horiuchi4J\\output\\moto.jpg', IMG)
 
         #グレースケールに変換する
         IMG_G = cv2.imread(IMAGE_PICTURE, 0)
@@ -79,8 +84,8 @@ def myface_cut():
 
         if FACE != ():
             #画像の出力
-            cv2.imwrite('C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\output\\face_cut.jpg', face_cut)
-            cv2.imwrite('C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\output\\face_rectangle.jpg', IMG)
+            cv2.imwrite('C:\\xampp\\htdocs\\php\\Horiuchi4J\\output\\face_cut.jpg', face_cut)
+            cv2.imwrite('C:\\xampp\\htdocs\\php\\Horiuchi4J\\output\\face_rectangle.jpg', IMG)
             break
         else:
             count += 1
@@ -95,7 +100,7 @@ def compare_by_hist():
     #認識できなかった時の処理書こうぜ
     TARGET_FILE = "\\parent_image\\MatsuzakiFC_1.jpg"
     COMPARING_FILE = "\\output\\face_cut.jpg"
-    IMG_DIR = "C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush"
+    IMG_DIR = "C:\\xampp\\htdocs\\php\\Horiuchi4J"
     IMG_SIZE = (200, 200)
 
     #比較するイメージファイルを読み込み、ヒストグラムを計算

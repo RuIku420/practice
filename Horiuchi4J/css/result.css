@@ -4,12 +4,17 @@ body {
 }
 
 #kakogoimg{
-    padding: 5%;
+    /*padding: 5%;*/
+}
+
+.imgs{
+    text-align:center;
 }
 
 .koimgs {
     display: inline-block;
-    padding: 5%;
+    /*padding: 5%;*/
+
 }
 
 p {

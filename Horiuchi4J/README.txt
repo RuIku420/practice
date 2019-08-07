@@ -9,7 +9,7 @@
 作動方法
 1:
 XAMPPのApacheを起動し、ブラウザを立ち上げ、
-URLに「http://localhost/php/PineSmallPeninsulaBush/upload.html」を入力。
+URLに「http://localhost/php/Horiuchi4J/upload.html」を入力。
 
 2:
 ファイルを選択し、フォルダから画像を選んで選択を押す。
