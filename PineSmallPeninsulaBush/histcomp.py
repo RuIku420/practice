@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def compare_by_hist(target_file):
     COMPARING_FILE = "\\output\\face_cut.jpg"
-    IMG_DIR = "C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush"
+    IMG_DIR = "PineSmallPeninsulaBushのパス"
     IMG_SIZE = (200, 200)
 
     #比較するイメージファイルを読み込み、ヒストグラムを計算
@@ -22,6 +22,7 @@ def compare_by_hist(target_file):
     result = cv2.compareHist(target_hist, comparing_hist, 0)
     #print(result * 100)
     return result * 100
+
 target_file_arr = ["\\processing_img\\Matsuzaki1PR_0.jpg", "\\processing_img\\Matsuzaki1PR_1.jpg", "\\processing_img\\Matsuzaki2PR_0.jpg", "\\processing_img\\Matsuzaki2PR_1.jpg", "\\processing_img\\Matsuzaki3PR_0.jpg", "\\processing_img\\Matsuzaki3PR_1.jpg", "\\processing_img\\Matsuzaki4PR_0.jpg"]
 result_arr = []
 #target_file = "\\processing_img\\Matsuzaki1PR_0.jpg"

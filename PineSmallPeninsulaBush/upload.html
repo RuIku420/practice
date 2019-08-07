@@ -1,21 +1,39 @@
-<!--phpはxamppを立ち上げてURLを踏まないとだめらしい
-どうやらこちらは見られず、home.phpを見てるらしい-->
 <!DOCTYPE html>
 <html>
 
   <head>
       <meta charset="utf-8">
-      <title>アップロードテスト</title>
-      <link rel="stylesheet" href="http://localhost//php//uploadtest//css//home.css">
+      <title>松崎しげる判定機</title>
+      <link rel="icon" href="Matsuzaki_1.icoのURL">
+      <link rel="stylesheet" href="home.cssのURL">
+      <script language="javascript" type="text/javascript">
+        function OnButtonClick() {
+          var loading = document.getElementById('loading');
+          var contents = document.getElementById('contents');
+
+          contents.style.display = 'none';
+          loading.classList.remove('hidden');
+
+        };
+        window.onpageshow = function(event) {
+          if (event.persisted) {
+            window.location.reload();
+          }
+        };
+    </script>
   </head>
   <body>
-    <p>アップロードされた画像と松崎しげるの画像との類似度を算出する</p>
-    <form method="POST" action="upimg.php" enctype="multipart/form-data">
+    <div id="contents">
+      <p>アップロードされた画像と<br>松崎しげるの画像との<br>類似度を算出する</p>
+      <form method="POST" action="upimg.php" enctype="multipart/form-data">
 
-       <input type="file" name="upimg" accept="image/*">
-       <input type="submit">
-      <a></a>
-   </form>
+        <input type="file" name="upimg" accept="image/*">
+        <input type="submit" onclick="OnButtonClick();">
+      </form>
+    </div>
+    <div id="loading" class="hidden">
+        <img src="gif/loading-03.gifのURL" alt="loading">
+    </div>
 
   </body>
 </html>

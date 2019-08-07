@@ -1,6 +1,3 @@
-<!--せや！パソンコにwebカメラつけて来場者の顔取ってそれを判定するってのは？-->
-<!--何か知らんがatom内のwebブラウザだと反映されない chromeから見よう-->
-<!--スマホからだと画像が表示できないのと画像がjpegじゃないとできない、ソース内の拡張子を変えればpngもいけるが・・・？-->
 <!DOCTYPE html>
 <html>
 
@@ -9,14 +6,15 @@
 
   <head>
       <meta charset="utf-8">
-      <title>アップロードテスト-result</title>
-      <link rel="stylesheet" href="http://localhost//php//PineSmallPeninsulaBush//css//result.css">
+      <title>しげる？しげらない？</title>
+      <link rel="icon" href="Matsuzaki_1.icoのURL">
+      <link rel="stylesheet" href="result.cssのURL">
 
   </head>
   <body>
     <?php
-      $command = "C:\\Users\\Owner\\Anaconda3\\python.exe C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\pytest3.py";
-      $command2 = "C:\\Users\\Owner\\Anaconda3\\python.exe C:\\xampp\\htdocs\\php\\PineSmallPeninsulaBush\\histcomp.py";
+      $command = "python.exe(各自のもの)のパス analyze.py";
+      $command2 = "python.exe(各自のもの)のパス histcomp.py";
       //ここにおける$img_nameの中身はただのファイル名
       $img_name = $_FILES['upimg']['name'];
       //echo($img_name);
@@ -28,6 +26,8 @@
       }else{
         rename('.\\img\\' . $img_name, '.\\img\\gazou.jpg'); //とりあえずファイル名を変えることをこれで成功なり
       }
+
+
       /*
       シングルクオーテーションで挟まれてない . は左右の文字列を結合するという意味やで
       */
@@ -43,13 +43,16 @@
     ?>
   <!--多分ここのlocalhostをipアドレスにするとスマホでも表示されるはず-->
   <div class="imgs">
-    <img src="http://localhost/php/PineSmallPeninsulaBush/img/gazou.jpg?<?= uniqid() ?>" id="kakogoimg"/>
+    <img src="moto.jpgのURL?<?= uniqid() ?>" id="kakomotoimg"/>
+    <p>加工元の画像</p>
+    <img src="gazou.jpgのURL?<?= uniqid() ?>" id="kakogoimg"/>
+    <p>加工後の画像</p>
     <!--orの理由は顔認識に失敗したら前の画像が残る、それとの比較した類似度が出ちゃう-->
     <!--なので顔認識できてても類似度が0を下回るなら加工後の画像を出さないことにする-->
     <?php if (end($opt) != "()" && end($opt2) > 0) { ?>
       <div class="koimgs">
-        <img src="http://localhost/php/PineSmallPeninsulaBush/parent_image/Matsuzaki1FC.jpg?" id="parimg"/>
-        <img src="http://localhost/php/PineSmallPeninsulaBush/output/face_cut.jpg?<?= uniqid() ?>" id="usrimg">
+        <img src="parent_image/Matsuzaki1FC.jpgのURL?" id="parimg"/>
+        <img src="output/face_cut.jpgのURL?<?= uniqid() ?>" id="usrimg">
       </div>
   </div>
     <p>類似度は<?php echo(end($opt2)) ?>%</p>
